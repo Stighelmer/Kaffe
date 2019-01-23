@@ -15,6 +15,7 @@ namespace Ecommerce.ViewModels
         public string UserRoles { get; set; }
 
         [EmailAddress]
+        [Required]
         public string Email { get; set; }
 
         public string UserDropDownHolder { get; set; }

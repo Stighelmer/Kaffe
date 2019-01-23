@@ -20,7 +20,8 @@
             @Html.ActionLink(item.Name, "Search", "Products", new { search = item.Name, sortBy = string.Empty }, new { @class = "btn btn-lg btn-link link-custom" })
             @if (Request.IsAuthenticated)
             {
-                @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) <text>|</text>
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { OnClick = $"return confirm('Remove {item.Name} and all its products?')" })
             }
         </li>
     }

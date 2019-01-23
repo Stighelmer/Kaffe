@@ -28,10 +28,6 @@ namespace Ecommerce.Controllers
         {
             var model = new ProductIndexViewModel();
 
-            //var products = id != null ? 
-            //    _context.Products.Include(p => p.Category).Where(c => c.CategoryId == id).ToList() : 
-            //    _context.Products.Include(p => p.Category).ToList();
-
             var products = _context.Products.Include(p => p.Category).ToList();
 
             model.Products.AddRange(products.Select(p => new ProductIndexViewModel.ProductListViewModel

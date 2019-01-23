@@ -79,6 +79,22 @@ namespace Ecommerce.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize]
+        public ActionResult Delete(int id)
+        {
+            var category = _context.Categories.Single(c => c.Id == id);
+
+            if (category == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            _context.Categories.Remove(category);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
         public ActionResult About()
         {
             return View();
