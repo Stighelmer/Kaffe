@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Ecommerce.Models.Category>
+@{
+    ViewBag.Title = "Index";
+}
+
+@if (!Model.Any())
+{
+    <p>Finns inga kategorier ännu.</p>
+}
+
+@if (Request.IsAuthenticated)
+{
+    @Html.ActionLink("Ny Kategori", "New", "Home")
+}
+
+<ul class="list-unstyled">
+    @foreach (var item in Model)
+    {
+        <li>
+            @Html.ActionLink(item.Name, "Search", "Products", new { search = item.Name, sortBy = string.Empty }, new { @class = "btn btn-lg btn-link link-custom" })
+            @if (Request.IsAuthenticated)
+            {
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id })
+            }
+        </li>
+    }
+</ul>
+
+

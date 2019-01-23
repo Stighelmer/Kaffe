@@ -1,0 +1,23 @@
+﻿@model Ecommerce.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>@Html.DisplayFor(model => model.Name)</h2>
+
+    <h4>@Html.DisplayFor(model => model.Category.Name)</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>Detaljer</dt>
+        <dd>@Html.DisplayFor(model => model.Details)</dd>
+        <dt>Pris</dt>
+        <dd>@Html.DisplayFor(model => model.Price)</dd>
+        <dt>Tillagd</dt>
+        <dd>@Html.DisplayFor(model => model.DateAdded)</dd>
+        </dl>
+
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |*@
+    @Html.ActionLink("Tillbaka", "Index")
+</p>

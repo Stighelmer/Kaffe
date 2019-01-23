@@ -1,0 +1,11 @@
+﻿@model Ecommerce.ViewModels.ProductIndexViewModel
+@{
+    ViewBag.Title = "List";
+}
+
+@if (!Model.Products.Any())
+{
+    <p class="text-center">Inga produkter matchade sökningen</p>
+}
+
+@Html.Partial("_ProductList", Model)

@@ -1,0 +1,28 @@
+﻿@model Ecommerce.ViewModels.UserIndexViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Users</h2>
+
+<table class="table">
+    <tr>
+        <th>Email</th>
+        <th>Role</th>
+    </tr>
+    @foreach (var item in Model.UserList)
+    {
+        <tr>
+            <td>@item.Email</td>
+            <td>@item.UserRoles</td>
+            @if (Request.IsAuthenticated && item.Email != "admin@kaffe.se")
+            {
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.UserId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.UserId })
+                </td>
+            }
+        </tr>
+    }
+</table>

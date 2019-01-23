@@ -1,0 +1,11 @@
+﻿
+@using (Html.BeginForm("Search", "Products", FormMethod.Get))
+{
+<div class="form-horizontal">
+    <div class="form-group text-center">
+        <div class="col-md-12">
+            @Html.Editor("Search") <input type="submit" value="Search" />
+        </div>
+    </div>
+</div>
+}
